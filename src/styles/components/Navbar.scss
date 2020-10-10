@@ -1,0 +1,148 @@
+@import "../lib/variables";
+
+$breakpoints: (
+  "small": (
+    max-width: 960px,
+  ),
+  "medium": (
+    max-width: 1200px,
+  ),
+  "large": (
+    max-width: 1900px,
+  ),
+);
+
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+
+    @media screen and #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+.navbar {
+  grid-area: Navbar;
+
+  background-color: #000;
+}
+
+.navbar__container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo {
+  z-index: 2;
+  color: $fontcolor;
+  margin-top: 1.8rem;
+  margin-right: 6rem;
+
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.navbar__menu {
+  width: 25%;
+  height: 3rem;
+
+  list-style: none;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  & .navbar__item {
+    & .navbar__link {
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+      color: $fontcolor;
+    }
+  }
+  @include respond-to(small) {
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+
+    background-color: $darkmaincolor;
+
+    clip-path: circle(0 at 50% -5%);
+    -webkit-clip-path: circle(0 at 50% -5%);
+    transition: all 1s ease-in-out;
+
+    pointer-events: none;
+    & .navbar__item {
+      display: none;
+    }
+
+    &.active {
+      clip-path: circle(200vh at 50% -5%);
+      -webkit-clip-path: circle(200vh at 50% -5%);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+
+      pointer-events: all;
+      & .navbar__item {
+        display: block;
+      }
+    }
+  }
+}
+
+.mobile-menu {
+  display: none;
+
+  @include respond-to(small) {
+    display: initial;
+
+    z-index: 2;
+    margin-top: 1rem;
+
+    cursor: pointer;
+    & .line1,
+    .line2,
+    .line3 {
+      width: 2.5rem;
+      height: 0.4rem;
+      margin-bottom: 0.4rem;
+      background-color: $maincolor;
+
+      border-radius: 2rem;
+
+      transition: 0.4s;
+    }
+
+    &.open {
+      & .line1 {
+        transform: rotate(-45deg) translate(-0.65rem, 0.4rem);
+        -webkit-transform: rotate(-45deg) translate(-0.65rem, 0.4rem);
+      }
+      & .line2 {
+        opacity: 0;
+      }
+      & .line3 {
+        transform: rotate(45deg) translate(-0.65rem, -0.4rem);
+        -webkit-transform: rotate(45deg) translate(-0.65rem, -0.4rem);
+      }
+    }
+  }
+}

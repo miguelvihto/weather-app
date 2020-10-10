@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html *,
+html *:before,
+html *:after {
+  box-sizing: inherit;
+}
+
+html,
+body,
+#root,
+.Wrapper {
+  height: 100%;
+}
+
+body {
+  font-family: "montseratt", sans-serif;
+  font-size: 1rem;
+}
