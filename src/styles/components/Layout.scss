@@ -1,54 +1,51 @@
 @import "../lib/_variables";
 
-@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
-  /* Styles */
-  .Wrapper {
-    background-color: $backgroundcolor;
-    overflow: scroll;
+/* Styles */
+.Wrapper {
+  background-color: $backgroundcolor;
+  overflow: scroll;
 
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 5rem 5rem 1fr 8rem;
-    grid-template-areas:
-      "Navbar"
-      "Search"
-      "Main"
-      ".";
-  }
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 5rem 1fr 7rem;
+  grid-template-areas:
+    "Navbar"
+    "."
+    "Footer";
+}
 
-  .search-box {
-    grid-area: Search;
-    width: 100%;
+.search-box {
+  grid-area: Search;
+  width: 100%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .search-box .search-bar {
-    display: block;
-    width: 70%;
-    padding: 1rem;
+.search-box .search-bar {
+  display: block;
+  width: 70%;
+  padding: 1rem;
 
-    appearance: none;
-    background: none;
-    border: none;
-    outline: none;
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
 
-    background-color: $maincolor;
-    border-radius: 0 0 1rem 1rem;
+  background-color: $maincolor;
+  border-radius: 0 0 1rem 1rem;
 
-    font-size: 1rem;
-    color: $fontcolor;
+  font-size: 1rem;
+  color: $fontcolor;
 
-    transition: 0.4s ease;
-  }
+  transition: 0.4s ease;
+}
 
-  .search-bar::placeholder {
-    color: $fontcolor;
-  }
+.search-bar::placeholder {
+  color: $fontcolor;
+}
 
-  .search-box .search-bar:focus {
-    background-color: rgba($darkmaincolor, $alpha: 0.75);
-  }
+.search-box .search-bar:focus {
+  background-color: rgba($darkmaincolor, $alpha: 0.75);
 }

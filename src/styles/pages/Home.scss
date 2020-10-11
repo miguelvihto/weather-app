@@ -1,0 +1,57 @@
+@import "../lib/variables";
+@import "../lib/medias";
+
+.hero {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero__banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  margin-bottom: 1.5rem;
+  & h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: $fontcolor;
+    & strong {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: $maincolor;
+    }
+  }
+
+  & .hero__img {
+    width: 15rem;
+    height: 15rem;
+  }
+}
+
+.hero__cta {
+  width: 10rem;
+  height: 4rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $moredarkmaincolor;
+
+  border: 3px solid $maincolor;
+  border-radius: 1.7rem;
+
+  & .cta__link {
+    font-size: 1rem;
+    color: $fontcolor;
+    text-decoration: none;
+  }
+}
