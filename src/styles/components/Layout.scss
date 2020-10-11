@@ -1,4 +1,5 @@
 @import "../lib/_variables";
+@import "../lib/medias";
 
 /* Styles */
 .Wrapper {
@@ -12,40 +13,4 @@
     "Navbar"
     "."
     "Footer";
-}
-
-.search-box {
-  grid-area: Search;
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.search-box .search-bar {
-  display: block;
-  width: 70%;
-  padding: 1rem;
-
-  appearance: none;
-  background: none;
-  border: none;
-  outline: none;
-
-  background-color: $maincolor;
-  border-radius: 0 0 1rem 1rem;
-
-  font-size: 1rem;
-  color: $fontcolor;
-
-  transition: 0.4s ease;
-}
-
-.search-bar::placeholder {
-  color: $fontcolor;
-}
-
-.search-box .search-bar:focus {
-  background-color: rgba($darkmaincolor, $alpha: 0.75);
 }

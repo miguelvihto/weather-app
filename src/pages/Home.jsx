@@ -14,7 +14,7 @@ const Home = () => {
           <h1>as you never see...</h1>
         </div>
         <div className="hero__cta">
-          <Link to="#" className="cta__link">
+          <Link to="/weather" className="cta__link">
             Go! See the weather
           </Link>
         </div>
