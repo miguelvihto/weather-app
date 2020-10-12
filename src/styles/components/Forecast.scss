@@ -1,0 +1,182 @@
+@import "../lib/variables";
+@import "../lib/medias";
+
+.forecast {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 27rem 27rem 27rem 27rem;
+  grid-template-areas:
+    "summary"
+    "days"
+    "humidityUv"
+    "windVisibility";
+}
+
+/* forecast SUMMARY START */
+.forecast__summary {
+  grid-area: summary;
+  padding-top: 2rem;
+  border-bottom: 1px dashed $maincolor;
+}
+
+.location-box {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.location-box .location {
+  color: $fontcolor;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+
+  margin-bottom: 1rem;
+}
+
+.location-box .date {
+  color: $fontcolor;
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
+}
+
+.forecast-box {
+  height: 16rem;
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.forecast-box .temp {
+  width: 10rem;
+  height: 7rem;
+  margin-bottom: 2rem;
+
+  display: inherit;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.5rem 0.5rem;
+
+  color: $fontcolor;
+  font-size: 3rem;
+  font-weight: 900;
+
+  text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
+  text-align: center;
+  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+  &.warm {
+    border: 2px solid $warmcolor;
+    border-radius: 2.5rem;
+    background-color: rgba($warmcolor, 0.1);
+  }
+  &.cold {
+    border: 2px solid $coldcolor;
+    border-radius: 2.5rem;
+    background-color: rgba($coldcolor, 0.1);
+  }
+}
+
+.temp-maxmin {
+  margin-top: 0.1rem;
+
+  font-size: 1rem;
+  color: darken($fontcolor, 15%);
+}
+
+.forecast-box .forecast-description {
+  display: inherit;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: $fontcolor;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
+.forecast-description .icon {
+  font-size: 0.8rem;
+}
+
+.feelslike {
+  width: 13rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  color: $fontcolor;
+}
+.feelslike .feelslike-temp {
+  height: 2rem;
+  width: 6rem;
+
+  display: inherit;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 600;
+
+  &.warm {
+    border: 2px solid $warmcolor;
+    border-radius: 2.5rem;
+    background-color: rgba($warmcolor, 0.1);
+  }
+  &.cold {
+    border: 2px solid $coldcolor;
+    border-radius: 2.5rem;
+    background-color: rgba($coldcolor, 0.1);
+  }
+}
+
+/* forecast SUMMARY END */
+
+.Humidity-UV,
+.Wind-visibility {
+  color: $fontcolor;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.Humidity-UV h3,
+.Wind-visibility h3 {
+  font-size: 2rem;
+}
+
+.Humidity-UV {
+  grid-area: humidityUv;
+
+  border-bottom: 1px dashed $maincolor;
+  & .humidity {
+    width: 50%;
+    height: 70%;
+  }
+  & .Uvi {
+    width: 50%;
+    height: 50%;
+  }
+}
+
+.Wind-visibility {
+  grid-area: windVisibility;
+  & .Wind {
+    width: 50%;
+    height: 70%;
+  }
+}
