@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles/components/HumidityBar.scss";
+import "../styles/components/_HumidityBar.scss";
 
 const HumidityBar = ({ humidity }) => {
   return (

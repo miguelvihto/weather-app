@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import "../styles/components/WeatherIcons.scss";
+import "../styles/components/_WeatherIcons.scss";
 
 const IconsWeather = ({ dailyWeather }) => {
   const [weatherDescription, setWeatherDescription] = useState(null);

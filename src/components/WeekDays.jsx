@@ -2,7 +2,7 @@ import React from "react";
 
 import IconWeather from "./WeatherIcons";
 
-import "../styles/components/Weekdays.scss";
+import "../styles/components/_Weekdays.scss";
 
 const WeekDays = ({ dailyWeather, aryDates }) => {
   return (

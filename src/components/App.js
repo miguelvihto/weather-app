@@ -7,6 +7,8 @@ import About from "../pages/About.jsx";
 import NotFound from "../pages/NotFound";
 import Weather from "../pages/Weather.jsx";
 
+import '../styles/components/App.scss'
+
 function App() {
   return (
     <BrowserRouter>

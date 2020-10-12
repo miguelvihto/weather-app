@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import "../styles/components/UVIndex.scss";
+import "../styles/components/_UVIndex.scss";
 
 const UvIndex = ({ uvindex }) => {
   const [greenActive, setGreenActive] = useState("");

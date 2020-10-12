@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom'
 
-import '../styles/pages/Home.scss'
+import '../styles/pages/_Home.scss'
 import HeroImg from '../assets/img/HeroImg2.0.svg'
 
 const Home = () => {

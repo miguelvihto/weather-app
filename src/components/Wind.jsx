@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles/components/Wind.scss";
+import "../styles/components/_Wind.scss";
 
 import Compass from "../assets/img/Compass2.0.svg";
 

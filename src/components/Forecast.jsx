@@ -7,7 +7,7 @@ import WeekDays from "../components/WeekDays";
 import UVI from "../components/UVIndex";
 import Wind from "../components/Wind";
 
-import '../styles/components/Forecast.scss'
+import '../styles/components/_Forecast.scss'
 
 const Forecast = ({weather, place}) => {
   const dateBuilder = (startDate, daysToAdd) => {

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-import '../styles/components/SearchBar.scss'
+import '../styles/components/_SearchBar.scss'
 
 const weatherAPI = {
   key: "5fc20206ce3de44b6ed5e45c90387df7",
