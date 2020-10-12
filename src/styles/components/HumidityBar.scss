@@ -1,0 +1,69 @@
+@import "../lib/variables";
+
+.humidity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & .humidity__box {
+    width: 100%;
+    height: 12rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & h6 {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.percent {
+  width: 100%;
+  height: 100%;
+  padding: 0.2rem;
+  position: relative;
+
+  display: grid;
+
+  & .humidity__progress,
+  .number {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  & .number {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+  }
+
+  & .humidity__progress {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    & circle {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: $backgroundcolordark;
+      stroke-width: 10;
+      stroke-linecap: round;
+      transform: translate(0.4rem, 0.4rem);
+
+      &:nth-child(2) {
+        stroke-dasharray: 440;
+        stroke: $maincolor;
+
+        transition: all 1s ease;
+      }
+    }
+  }
+}

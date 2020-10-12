@@ -1,0 +1,38 @@
+@import "../lib/variables";
+
+.Weather__weekdays {
+  grid-area: days;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom: 1px dashed $maincolor;
+}
+
+.day {
+  display: inherit;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 100%;
+  height: 3.5rem;
+
+  color: $fontcolor;
+  font-weight: 600;
+  font-size: 1rem;
+
+  border-top: 1px solid rgba($maincolor, $alpha: 0.3);
+}
+
+.day .icon {
+  font-size: 0.3rem;
+}
+
+.day-maxmin {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba($fontcolor, $alpha: 0.8);
+}

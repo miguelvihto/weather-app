@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className="hero">
         <div className="hero__banner">
-          <img className="hero__img" src={HeroImg} alt="Main Image"/>
+          <img className="hero__img" src={HeroImg} alt="two persons watching a cool display with weather info"/>
           <h1>You are going to see the <strong>weather</strong>,</h1> 
           <br/>
           <h1>as you never see...</h1>
