@@ -3,8 +3,6 @@
 
 .navbar {
   grid-area: Navbar;
-
-  background-color: #000;
 }
 
 .navbar__container {
@@ -110,6 +108,7 @@
       }
       & .line2 {
         opacity: 0;
+        transition: 0.2s;
       }
       & .line3 {
         transform: rotate(45deg) translate(-0.65rem, -0.4rem);
