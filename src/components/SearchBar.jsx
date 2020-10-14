@@ -9,11 +9,11 @@ const weatherAPI = {
   base: "https://api.openweathermap.org/data/2.5/",
 };
   
-const geocodeGoogleAPI = {
+/* const geocodeGoogleAPI = {
   base: "https://maps.googleapis.com/maps/api/geocode/",
   key: "AIzaSyBCa9rLnc0j6dXR-iIfW9Mwi7TP3lp2Adg",
 };
-
+ */
 const SearchBar = () => {
   const [weather, setWeather] = useState(null);
   const [place, setPlace] = useState(null);
@@ -34,17 +34,16 @@ const SearchBar = () => {
     clearSuggestions();
   });
 
-  const search = (e) => {
+ /* const handleSearch = (e) => {
     if (e.key === "Enter") {
-      fetch(`${geocodeGoogleAPI.base}json?address=${value}&key=${geocodeGoogleAPI.key}`)
-        .then((response) => response.json())
-        .then((result) => {
-          if (result.status === "OK") {
-            setPlace(result.results[0]);
-            console.log(result);
+      
+      getGeocode({ address: description })
+      .then(results => {
+            /* setPlace(description); 
+            console.log(results);
 
-            fetch(
-              `${weatherAPI.base}onecall?lat=${result.results[0].geometry.location.lat}&lon=${result.results[0].geometry.location.lng}&units=metric&appid=${weatherAPI.key}`
+             fetch(
+              `${weatherAPI.base}onecall?lat=${lat}&lon=${lng}&units=metric&appid=${weatherAPI.key}`
             )
               .then((response) => response.json())
               .then((result) => {
@@ -55,16 +54,13 @@ const SearchBar = () => {
 
             .catch(error => {
               console.log('WeatherAPIError: ', error)
-            })
-          } else {
-            console.log("Status geocodegoogleAPI ERROR");
-          }
-        })
-        .catch(error => {
-          console.log('geocodegoogleAPI ERROR: ', error)
-        })
+            }) 
+      })
+      .catch(error => {
+        console.log('geocodegoogleAPI ERROR: ', error)
+      }) 
     }
-  };
+  }; */
 
   const handleInput = e => {
     // Update the keyword of the input element
@@ -109,6 +105,7 @@ const SearchBar = () => {
 
       return (
         <li
+          className="search-item"
           key={id}
           onClick={handleSelect(suggestion)}
         >
@@ -121,15 +118,16 @@ const SearchBar = () => {
     <div ref={registerRef}
     className="search-box">
       <input
-        className="search-bar"
+        className={status === 'OK' ? "search-bar list" : "search-bar"}
         value={value}
         onChange={handleInput}
-        onKeyPress={search}
+        /* onKeyPress={handleSearch} */
         disabled={!ready}
         placeholder="Introduce the place..."
+        spellCheck="false"
       />
       {/* We can use the "status" to decide whether we should display the dropdown or not */}
-      {status === 'OK' && <ul>{renderSuggestions()}</ul>}
+      {status === 'OK' && <ul className="search-list">{renderSuggestions()}</ul>}
     </div>
   );
 };
