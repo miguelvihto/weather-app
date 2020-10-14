@@ -8,7 +8,7 @@ import '../styles/pages/_Weather.scss'
 const Weather = ({weather, place}) => {
   return (
     <div className="weather">
-      <SearchBar  ></SearchBar>
+      <SearchBar ></SearchBar>
       <React.Fragment>
       {typeof weather && place === null ? (
         <React.Fragment></React.Fragment>
