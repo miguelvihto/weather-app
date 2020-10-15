@@ -34,10 +34,6 @@ const SearchBar = (props) => {
     clearSuggestions();
   });
 
-  const storePlaceData = () => {
-    
-  }
-
   const handleKey = (e) => {
     if (e.key === "Enter") {
       setValue("");
@@ -132,7 +128,7 @@ const SearchBar = (props) => {
     });
 
   return (
-    <div ref={registerRef}
+    <div 
     className="search-box">
       <input
         className={status === 'OK' ? "search-bar list-active" : "search-bar"}
@@ -144,7 +140,7 @@ const SearchBar = (props) => {
         spellCheck="false"
       />
       {/* We can use the "status" to decide whether we should display the dropdown or not */}
-      {status === 'OK' && <ul className="search-list">{renderSuggestions()}</ul>}
+      {status === 'OK' && <ul ref={registerRef} className="search-list">{renderSuggestions()}</ul>}
     </div>
   );
 };
