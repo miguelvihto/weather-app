@@ -13,7 +13,7 @@ const Weather = () => {
 
   return (
     <div className="weather">
-      <SearchBar storeInfo={(weather, place) => {
+      <SearchBar storeData={(weather, place) => {
         setWeatherData(weather)
         setPlaceData(place)
       }}></SearchBar>

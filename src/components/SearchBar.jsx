@@ -34,42 +34,42 @@ const SearchBar = (props) => {
     clearSuggestions();
   });
 
-  const handleSearch = () => {
-    setValue("");
-    clearSuggestions();
-
-    fetch(`${geocodeGoogleAPI.base}json?address=${value}&key=${geocodeGoogleAPI.key}`)
-      .then(response => response.json())
-      .then(result => {
-            console.log(result);
-            if(result.status === 'OK') {
-              setPlace(result.results[0].formatted_address)
-              let lat = result.results[0].geometry.location.lat
-              let lng = result.results[0].geometry.location.lng
-
-              fetch(
-              `${weatherAPI.base}onecall?lat=${lat}&lon=${lng}&units=metric&appid=${weatherAPI.key}`
-              )
-              .then((response) => response.json())
-              .then((result) => {
-                console.log(result);
-                setWeather(result);
-              })
-  
-              .catch(error => {
-                console.log('WeatherAPIError: ', error)
-              })  
-
-            }
-
-      }).catch(error => {
-        console.log('geocodegoogleAPI ERROR: ', error)
-        })
+  const storePlaceData = () => {
+    
   }
 
   const handleKey = (e) => {
     if (e.key === "Enter") {
-      handleSearch()
+      setValue("");
+      clearSuggestions();
+
+      fetch(`${geocodeGoogleAPI.base}json?address=${value}&key=${geocodeGoogleAPI.key}`)
+        .then(response => response.json())
+        .then(result => {
+              console.log(result);
+              if(result.status === 'OK') {
+                setPlace(result.results[0].formatted_address)
+                let lat = result.results[0].geometry.location.lat
+                let lng = result.results[0].geometry.location.lng
+
+                fetch(
+                `${weatherAPI.base}onecall?lat=${lat}&lon=${lng}&units=metric&appid=${weatherAPI.key}`
+                )
+                .then((response) => response.json())
+                .then((result) => {
+                  console.log(result);
+                  setWeather(result);
+                })
+    
+                .catch(error => {
+                  console.log('WeatherAPIError: ', error)
+                })  
+
+              }
+
+        }).catch(error => {
+          console.log('geocodegoogleAPI ERROR: ', error)
+          })
     }
   };
 
@@ -83,17 +83,16 @@ const SearchBar = (props) => {
     // by setting the second parameter as "false"
     setValue(description, false);
     clearSuggestions();
-
+    setPlace(description)
     // Get latitude and longitude via utility functions
-    /* getGeocode({ address: description })
-      .then(results => getLatLng(results[0]))
+    getGeocode({ address: description })
+      .then((results) => getLatLng(results[0]))
       .then(({ lat, lng }) => {
         console.log('📍 Coordinates: ', { lat, lng });
 
         fetch(`${weatherAPI.base}onecall?lat=${lat}&lon=${lng}&units=metric&appid=${weatherAPI.key}`)
         .then((response) => response.json())
               .then((result) => {
-                console.log(result);
                 setWeather(result);
                 setValue("");
                 
@@ -105,13 +104,12 @@ const SearchBar = (props) => {
 
       }).catch(error => {
         console.log('😱 Error: ', error)
-      }); */
-      handleSearch()
+      });
       
   };
 
   useEffect(() => {
-    props.storeInfo(weather, place)
+    props.storeData(weather, place)
   }, [weather, place])
   
 
@@ -137,12 +135,12 @@ const SearchBar = (props) => {
     <div ref={registerRef}
     className="search-box">
       <input
-        className={status === 'OK' ? "search-bar list" : "search-bar"}
+        className={status === 'OK' ? "search-bar list-active" : "search-bar"}
         value={value}
         onChange={handleInput}
         onKeyPress={handleKey}
         disabled={!ready}
-        placeholder="Introduce the place..."
+        placeholder="Add a place..."
         spellCheck="false"
       />
       {/* We can use the "status" to decide whether we should display the dropdown or not */}

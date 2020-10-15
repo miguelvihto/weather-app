@@ -9,6 +9,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 9;
 
   & .search-bar {
     display: block;
@@ -28,7 +30,7 @@
 
     transition: 0.4s ease;
 
-    &.list {
+    &.list-active {
       border-radius: 0;
       border-bottom: 3px solid rgba($darkmaincolor, $alpha: 0.9);
     }
@@ -45,6 +47,9 @@
 .search-list {
   width: 70%;
   padding: 1.5rem;
+
+  position: relative;
+  z-index: 10;
 
   appearance: none;
   background: none;
