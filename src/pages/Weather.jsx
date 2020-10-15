@@ -1,20 +1,28 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import SearchBar from '../components/SearchBar'
 import Forecast from '../components/Forecast'
   
 import '../styles/pages/_Weather.scss'
 
-const Weather = ({weather, place}) => {
+const Weather = () => {
+  const [weatherData, setWeatherData] = useState(null);
+  const [placeData, setPlaceData] = useState(null);
+
+
+
   return (
     <div className="weather">
-      <SearchBar ></SearchBar>
+      <SearchBar storeInfo={(weather, place) => {
+        setWeatherData(weather)
+        setPlaceData(place)
+      }}></SearchBar>
       <React.Fragment>
-      {typeof weather && place === null ? (
+      {typeof weatherData && placeData === null ? (
         <React.Fragment></React.Fragment>
       ) : (
-        weather && (
-          <Forecast weather={weather} place={place}></Forecast>
+        weatherData && (
+          <Forecast weather={weatherData} place={placeData}></Forecast>
         )
       )}
     </React.Fragment>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
 import useOnclickOutside from 'react-cool-onclickoutside';
 
@@ -9,12 +9,12 @@ const weatherAPI = {
   base: "https://api.openweathermap.org/data/2.5/",
 };
   
-/* const geocodeGoogleAPI = {
+const geocodeGoogleAPI = {
   base: "https://maps.googleapis.com/maps/api/geocode/",
   key: "AIzaSyBCa9rLnc0j6dXR-iIfW9Mwi7TP3lp2Adg",
 };
- */
-const SearchBar = () => {
+
+const SearchBar = (props) => {
   const [weather, setWeather] = useState(null);
   const [place, setPlace] = useState(null);
 
@@ -25,7 +25,7 @@ const SearchBar = () => {
     setValue,
     clearSuggestions
   } = usePlacesAutocomplete({
-    requestOptions: { typies: 'cities' },
+    requestOptions: { typies: 'locality' },
     debounce: 300
   });
   const registerRef = useOnclickOutside(() => {
@@ -34,33 +34,44 @@ const SearchBar = () => {
     clearSuggestions();
   });
 
- /* const handleSearch = (e) => {
-    if (e.key === "Enter") {
-      
-      getGeocode({ address: description })
-      .then(results => {
-            /* setPlace(description); 
-            console.log(results);
+  const handleSearch = () => {
+    setValue("");
+    clearSuggestions();
 
-             fetch(
+    fetch(`${geocodeGoogleAPI.base}json?address=${value}&key=${geocodeGoogleAPI.key}`)
+      .then(response => response.json())
+      .then(result => {
+            console.log(result);
+            if(result.status === 'OK') {
+              setPlace(result.results[0].formatted_address)
+              let lat = result.results[0].geometry.location.lat
+              let lng = result.results[0].geometry.location.lng
+
+              fetch(
               `${weatherAPI.base}onecall?lat=${lat}&lon=${lng}&units=metric&appid=${weatherAPI.key}`
-            )
+              )
               .then((response) => response.json())
               .then((result) => {
                 console.log(result);
                 setWeather(result);
-                setValue("");
               })
+  
+              .catch(error => {
+                console.log('WeatherAPIError: ', error)
+              })  
 
-            .catch(error => {
-              console.log('WeatherAPIError: ', error)
-            }) 
-      })
-      .catch(error => {
+            }
+
+      }).catch(error => {
         console.log('geocodegoogleAPI ERROR: ', error)
-      }) 
+        })
+  }
+
+  const handleKey = (e) => {
+    if (e.key === "Enter") {
+      handleSearch()
     }
-  }; */
+  };
 
   const handleInput = e => {
     // Update the keyword of the input element
@@ -74,7 +85,7 @@ const SearchBar = () => {
     clearSuggestions();
 
     // Get latitude and longitude via utility functions
-    getGeocode({ address: description })
+    /* getGeocode({ address: description })
       .then(results => getLatLng(results[0]))
       .then(({ lat, lng }) => {
         console.log('📍 Coordinates: ', { lat, lng });
@@ -85,6 +96,7 @@ const SearchBar = () => {
                 console.log(result);
                 setWeather(result);
                 setValue("");
+                
               })
 
             .catch(error => {
@@ -93,8 +105,15 @@ const SearchBar = () => {
 
       }).catch(error => {
         console.log('😱 Error: ', error)
-      });
+      }); */
+      handleSearch()
+      
   };
+
+  useEffect(() => {
+    props.storeInfo(weather, place)
+  }, [weather, place])
+  
 
   const renderSuggestions = () =>
     data.map(suggestion => {
@@ -121,7 +140,7 @@ const SearchBar = () => {
         className={status === 'OK' ? "search-bar list" : "search-bar"}
         value={value}
         onChange={handleInput}
-        /* onKeyPress={handleSearch} */
+        onKeyPress={handleKey}
         disabled={!ready}
         placeholder="Introduce the place..."
         spellCheck="false"

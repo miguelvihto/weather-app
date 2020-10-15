@@ -9,34 +9,34 @@ const Wind = ({ wind_speed }) => {
     <div className="Wind">
       <img className="Compass" src={Compass} alt="Compass" />
       <div className="wind__animation">
-        <svg class="wind1">
+        <svg className="wind1">
           <rect width="1" height="1"></rect>
         </svg>
-        <svg class="wind2">
+        <svg className="wind2">
           <rect width="1" height="1"></rect>
         </svg>
-        <svg class="wind3">
+        <svg className="wind3">
           <rect width="1" height="1"></rect>
         </svg>
-        <svg class="wind4">
+        <svg className="wind4">
           <rect width="1" height="1"></rect>
         </svg>
-        <svg class="wind5">
+        <svg className="wind5">
           <rect width="1" height="1"></rect>
         </svg>
-        <svg class="wind6">
+        <svg className="wind6">
           <rect width="1" height="1"></rect>
         </svg>
-        <svg class="wind7">
+        <svg className="wind7">
           <rect width="1" height="1"></rect>
         </svg>
-        <svg class="wind8">
+        <svg className="wind8">
           <rect width="1" height="1"></rect>
         </svg>
-        <svg class="wind9">
+        <svg className="wind9">
           <rect width="1" height="1"></rect>
         </svg>
-        <svg class="wind10">
+        <svg className="wind10">
           <rect width="1" height="1"></rect>
         </svg>
       </div>

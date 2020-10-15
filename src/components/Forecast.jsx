@@ -71,11 +71,13 @@ const Forecast = ({weather, place}) => {
   const startDate = new Date();
   const aryDates = dateBuilder(startDate, 6);
 
+  
+
   return (
     <div className="forecast">
             <div className="forecast__summary">
               <div className="location-box">
-                <div className="location">{place.formatted_address}</div>
+                <div className="location">{place}</div>
                 <div className="date">{aryDates[0]}</div>
               </div>
 
