@@ -1,0 +1,50 @@
+@import "../lib/variables";
+
+.Uvi {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  & h6 {
+    font-size: 1.2rem;
+  }
+}
+
+.Uvi__bar {
+  width: 50%;
+  height: 12%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 1rem;
+  opacity: 0.2;
+
+  background-color: $moredarkmaincolor;
+  border: 1px solid $maincolor;
+  font-size: 0.6rem;
+  font-weight: 600;
+  &.green {
+    color: #1ecf2e;
+  }
+  &.yellow {
+    color: #eeee13;
+  }
+  &.orange {
+    color: #f0a00b;
+  }
+  &.red {
+    color: #ec290e;
+  }
+  &.pink {
+    color: #ce18e3;
+  }
+  &:nth-child(5) {
+    margin-bottom: 1rem;
+  }
+}
+
+.active {
+  opacity: 1;
+}

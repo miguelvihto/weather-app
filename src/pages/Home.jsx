@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom'
 
-import '../styles/pages/Home.scss'
+import '../styles/pages/_Home.scss'
 import HeroImg from '../assets/img/HeroImg2.0.svg'
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
           </div>
         </div>
         <div className="hero__cta">
-          <Link to="#" className="cta__link">
+          <Link to="/weather" className="cta__link">
             Go! See the weather
           </Link>
         </div>

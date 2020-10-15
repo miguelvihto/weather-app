@@ -1,0 +1,16 @@
+@import "../lib/_variables";
+@import "../lib/medias";
+
+/* Styles */
+.Wrapper {
+  background-color: $backgroundcolor;
+  overflow: scroll;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem 1fr 7rem;
+  grid-template-areas:
+    "Navbar"
+    "."
+    "Footer";
+}

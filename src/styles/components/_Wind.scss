@@ -1,0 +1,108 @@
+.Wind {
+  display: flex;
+}
+
+.Compass {
+  width: 100%;
+}
+
+.wind__animation {
+  width: 100%;
+  margin-left: -100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 3;
+}
+
+.Wind svg {
+  width: 8px;
+  height: 1px;
+}
+
+svg > rect {
+  width: 100%;
+  height: 100%;
+  stroke: none;
+  fill: #999797;
+}
+
+.wind1 {
+  animation: windmv1 0.5s infinite ease-in-out;
+}
+
+.wind2 {
+  animation: windmv2 0.2s infinite ease-in-out;
+}
+
+.wind3 {
+  animation: windmv1 0.4s infinite ease-in-out;
+}
+
+.wind4 {
+  animation: windmv3 0.15s infinite ease-in-out;
+}
+
+.wind5 {
+  animation: windmv2 0.3s infinite ease-in-out;
+}
+
+.wind6 {
+  animation: windmv1 0.45s infinite ease-in-out;
+}
+.wind7 {
+  animation: windmv2 0.35s infinite ease-in-out;
+}
+.wind8 {
+  animation: windmv3 0.25s infinite ease-in-out;
+}
+.wind9 {
+  animation: windmv1 0.5s infinite ease-in-out;
+}
+.wind10 {
+  animation: windmv2 0.1s infinite ease-in-out;
+}
+
+@keyframes windmv1 {
+  0% {
+    transform: translateX(0px) translateY(0px) rotateZ(0deg);
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(100px) skew(5deg);
+    opacity: 0.1;
+  }
+}
+
+@keyframes windmv2 {
+  0% {
+    transform: translateX(0px) rotateZ(0deg);
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(100px) skew(5deg);
+    opacity: 0.1;
+  }
+}
+
+@keyframes windmv3 {
+  0% {
+    transform: translateX(0px) rotateZ(0deg);
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(100px) skew(5deg);
+    opacity: 0.1;
+  }
+}

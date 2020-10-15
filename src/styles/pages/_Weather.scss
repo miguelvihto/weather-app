@@ -1,0 +1,8 @@
+@import "../lib/variables";
+@import "../lib/medias";
+
+.weather {
+  padding: 1.5rem 1rem 1.5rem 1rem;
+}
+
+@import "../components/Forecast";
