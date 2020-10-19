@@ -10,9 +10,9 @@ const Home = () => {
         <div className="hero__banner">
           <img className="hero__img" src={HeroImg} alt="Main Image"/>
           <div className="hero__text">
-            <h1>You are going to see the <strong>weather</strong>,</h1> 
+            <h2>You are going to see the <strong>weather</strong>,</h2> 
             <br/>
-            <h1>as you never see...</h1>
+            <h2>as you never see...</h2>
           </div>
         </div>
         <div className="hero__cta">

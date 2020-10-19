@@ -37,6 +37,7 @@
 
     &::placeholder {
       color: $fontcolor;
+      font-family: Asap-Bold;
     }
     &:focus {
       background-color: rgba($darkmaincolor, $alpha: 0.75);

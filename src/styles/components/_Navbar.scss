@@ -16,13 +16,8 @@
 }
 
 .logo {
-  z-index: 2;
-  color: $fontcolor;
-  margin-top: 1.8rem;
-  margin-right: 6rem;
-
-  font-size: 2rem;
-  font-weight: 700;
+  width: 9rem;
+  height: 9rem;
 }
 
 .navbar__menu {
@@ -37,10 +32,10 @@
   align-items: center;
   & .navbar__item {
     & .navbar__link {
+      font-size: 1.5rem;
       cursor: pointer;
       font-weight: 600;
       text-decoration: none;
-      color: $fontcolor;
     }
   }
   @include respond-to(small) {

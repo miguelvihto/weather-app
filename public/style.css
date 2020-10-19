@@ -1,0 +1,333 @@
+@font-face {
+  font-family: "Roboto-Thin";
+  src: url("../../assets/fonts/Roboto/Roboto-Thin.ttf");
+}
+@font-face {
+  font-family: "Teko-SemiBold";
+  src: url("../../assets/fonts/Teko/Teko-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Asap-Bold";
+  src: url("../../assets/fonts/Asap/Asap-Bold.ttf");
+}
+/* --- COLORS --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #efebeb;
+}
+
+html *,
+html *:before,
+html *:after {
+  box-sizing: inherit;
+}
+
+html,
+body,
+#root,
+.Wrapper {
+  height: 100%;
+}
+
+body {
+  font-size: 1rem;
+  font-family: "Asap-Bold";
+}
+
+/* --- COLORS --- */
+/* --- COLORS --- */
+.hero {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero__banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+  margin-bottom: 2rem;
+}
+.hero__banner .hero__text {
+  width: 40%;
+  margin-right: 1.5rem;
+}
+.hero__banner .hero__text h2 {
+  font-size: 3rem;
+  text-align: center;
+}
+.hero__banner .hero__text h2 strong {
+  font-weight: 700;
+  color: #0aae92;
+  font-size: 4rem;
+}
+.hero__banner .hero__img {
+  width: 38rem;
+  height: 38rem;
+}
+@media screen and (max-width: 1224px) {
+  .hero__banner {
+    flex-direction: column;
+  }
+  .hero__banner .hero__text {
+    width: initial;
+    margin-right: initial;
+  }
+  .hero__banner .hero__text h2 {
+    font-size: 2.5rem;
+  }
+  .hero__banner .hero__text h2 strong {
+    font-size: 3rem;
+  }
+  .hero__banner .hero__img {
+    width: 30rem;
+    height: 30rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .hero__banner {
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+  }
+  .hero__banner .hero__text {
+    width: initial;
+    margin-right: initial;
+  }
+  .hero__banner .hero__text h2 {
+    font-size: 1.5rem;
+  }
+  .hero__banner .hero__text h2 strong {
+    font-size: 1.8rem;
+  }
+  .hero__banner .hero__img {
+    width: 15rem;
+    height: 15rem;
+  }
+}
+
+.hero__cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0b453b;
+  width: 20rem;
+  height: 5rem;
+  border: 3px solid #0aae92;
+  border-radius: 1.7rem;
+}
+.hero__cta .cta__link {
+  text-decoration: none;
+  text-align: center;
+  font-size: 2rem;
+}
+@media screen and (max-width: 1224px) {
+  .hero__cta {
+    width: 15rem;
+    height: 5rem;
+  }
+  .hero__cta .cta__link {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .hero__cta {
+    width: 10rem;
+    height: 4rem;
+  }
+  .hero__cta .cta__link {
+    font-size: 1rem;
+  }
+}
+
+/* --- COLORS --- */
+.weather {
+  padding: 1.5rem 1rem 1.5rem 1rem;
+}
+
+/* --- COLORS --- */
+.forecast {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 27rem 27rem 27rem 27rem;
+  grid-template-areas: "summary" "days" "humidityUv" "windVisibility";
+}
+
+/* forecast SUMMARY START */
+.forecast__summary {
+  grid-area: summary;
+  padding-top: 2rem;
+  border-bottom: 1px dashed #0aae92;
+}
+
+.location-box {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.location-box .location {
+  color: #efebeb;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+  margin-bottom: 1rem;
+}
+
+.location-box .date {
+  color: #efebeb;
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
+}
+
+.forecast-box {
+  height: 16rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.forecast-box .temp {
+  width: 10rem;
+  height: 7rem;
+  margin-bottom: 2rem;
+  display: inherit;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0.5rem;
+  color: #efebeb;
+  font-size: 3rem;
+  font-weight: 900;
+  text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
+  text-align: center;
+  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+}
+.forecast-box .temp.warm {
+  border: 2px solid #f24d04;
+  border-radius: 2.5rem;
+  background-color: rgba(242, 77, 4, 0.1);
+}
+.forecast-box .temp.cold {
+  border: 2px solid #29bbe9;
+  border-radius: 2.5rem;
+  background-color: rgba(41, 187, 233, 0.1);
+}
+
+.temp-maxmin {
+  margin-top: 0.1rem;
+  font-size: 1rem;
+  color: #cdc1c1;
+}
+
+.forecast-box .forecast-description {
+  display: inherit;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #efebeb;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
+.forecast-description .icon {
+  font-size: 0.8rem;
+}
+
+.feelslike {
+  width: 13rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: #efebeb;
+}
+
+.feelslike .feelslike-temp {
+  height: 2rem;
+  width: 6rem;
+  display: inherit;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+.feelslike .feelslike-temp.warm {
+  border: 2px solid #f24d04;
+  border-radius: 2.5rem;
+  background-color: rgba(242, 77, 4, 0.1);
+}
+.feelslike .feelslike-temp.cold {
+  border: 2px solid #29bbe9;
+  border-radius: 2.5rem;
+  background-color: rgba(41, 187, 233, 0.1);
+}
+
+/* forecast SUMMARY END */
+.Humidity-UV,
+.Wind-visibility {
+  color: #efebeb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.Humidity-UV h3,
+.Wind-visibility h3 {
+  font-size: 2rem;
+}
+
+.Humidity-UV {
+  grid-area: humidityUv;
+  border-bottom: 1px dashed #0aae92;
+}
+.Humidity-UV .humidity {
+  width: 50%;
+  height: 70%;
+}
+.Humidity-UV .Uvi {
+  width: 50%;
+  height: 50%;
+}
+
+.Wind-visibility {
+  grid-area: windVisibility;
+}
+.Wind-visibility .Wind {
+  width: 50%;
+  height: 70%;
+}
+
+/* --- COLORS --- */
+.about {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 30rem;
+  grid-template-areas: "Introduction" "Form";
+}
+
+.introduction {
+  grid-area: Introduction;
+  padding: 1rem;
+}
+.introduction p {
+  color: rgba(239, 235, 235, 0.5);
+}
+
+/*# sourceMappingURL=style.css.map */

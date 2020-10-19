@@ -1,20 +1,26 @@
+@import "./variables";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: $fontcolor;
 }
 
-html *,
+/* html *,
 html *:before,
 html *:after {
   box-sizing: inherit;
+} */
+
+html {
+  height: 100%;
 }
 
-html,
 body,
-#root,
-.Wrapper {
-  height: 100%;
+#root {
+  min-height: 100%;
+  display: contents;
 }
 
 body {

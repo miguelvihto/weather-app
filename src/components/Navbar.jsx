@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import Logo from '../assets/img/Logo.svg'
 import "../styles/components/_Navbar.scss";
 
 const Navbar = () => {
@@ -13,7 +14,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbar__container">
         <Link to="/" className="navbar__logo">
-          <img className="logo" src="" alt="Logo" />
+          <img className="logo" src={Logo} alt="Logo" />
         </Link>
         <div
           className={click ? "mobile-menu open" : "mobile-menu"}
