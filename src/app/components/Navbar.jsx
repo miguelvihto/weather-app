@@ -25,11 +25,18 @@ const Navbar = () => {
           <div className="line3"></div>
         </div>
         <ul className={click ? "navbar__menu active" : "navbar__menu"}>
-          <li className="navbar__item">
-            <Link to="#" className="navbar__link">
-              Language
+          <ul className="navbar__item">Language
+            <li>
+            <Link to="/" className="navbar__link translator" onClick={closeMobileMenu}>
+              English
             </Link>
-          </li>
+            </li>
+            <li>
+            <Link to="/" className="navbar__link translator" onClick={closeMobileMenu}>
+              Spanish
+            </Link>
+            </li>
+          </ul>
           <li className="navbar__item">
             <Link
               to="/about"

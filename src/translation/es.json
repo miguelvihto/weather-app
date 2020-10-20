@@ -1,0 +1,12 @@
+{
+  "nav": {
+    "about": "about",
+    "language": "language"
+  },
+  "home": {
+    "h1_1": "You are going to see the ,",
+    "strong": "weather",
+    "h1_2":"as you never see...",
+    "cta": "Go! See the weather"
+  }
+}
